@@ -1,0 +1,88 @@
+
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title><profile</title>
+  </head>
+  <body>
+<br>
+
+<style>
+    .profileimage {
+        display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            height:20%;
+            position: relative;
+
+    }
+
+
+</style>
+
+<div class="cardbox">
+
+
+    <div class="card">
+
+      <img src="/static/images/{{pr_det.profilepicname}}" class="profileimage"/>
+      <img position="absolute"; class="profileimage" id="preview"/>
+<br>
+          <form method="post" enctype="multipart/form-data">
+
+          <label for="inputField" id="submit" class="btn btn-primary">Browse..</label>
+          <input class="btn btn-primary" id="inputField" type="file" name="pic" style="display:none" onchange="loadFile(event)">
+
+
+
+
+          <script>
+              var loadFile = function(event) {
+                  var output =
+                  document.getElementById('preview');
+                  output.src =
+                  URL.createObjectURL(event.target.files[0]);
+
+                  output.style.height="20"
+                  output.onload = function() {
+	                console.log("Image loaded");
+                      URL.revokeObjectURL(output.src) //freememory
+                  }
+
+                  };
+
+          </script>
+          <button type="submit" id= "submit" class="btn btn-primary">Upload</button>
+
+
+
+
+
+<!-- Change Picture -->
+
+      <div class="profilename">
+<br>
+      <h1 style="font-size: 2rem; color: white; font-family:georgia,garamond,serif;" >{{pr_det.firstname}} {{pr_det.lastname}}</h1> </div>
+      <p class="title">{{pr_det.email}}</p>
+      <p style="color: #2ecc71">Alias : {{pr_det.username}}</p>
+
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <p><button>Contact</button></p>
+    </div>
+    </div>
+
+
+
+  </body>
+</html>
+{% endblock %}

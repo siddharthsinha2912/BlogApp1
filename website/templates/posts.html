@@ -1,0 +1,30 @@
+
+
+{% extends "posts_div.html" %} {% block title %}{{username}}'s Posts{% endblock
+%} {% block header %}
+          <div align="left">
+
+            <a class="back-btn" href="/home"
+              ><button type="button" class="btn btn-secondary btn-lg">Back</button></a
+            >
+          </div>
+          <br>
+
+
+          <div class="header">{{pr_det.firstname}} {{pr_det.lastname}}</div>
+
+{% endblock %} {% block footer %}
+<style>
+  .header{
+    font-family: 'Allan';font-size: 30px;
+    color: white;
+  }
+
+  .back-btn{
+    position:fixed;
+    align:left;
+  }
+
+
+</style>
+{% endblock %}
